@@ -1,0 +1,26 @@
+{
+  "name": "weather-forecast-app",
+  "description": "Weather forecast app with map. You can get current weather & daily forecast",
+  "main": "openweathermap-leaflet.js",
+  "authors": [
+    "Sedat Uygur <sedatcan_92@hotmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "leaflet",
+    "weather",
+    "map",
+    "openweathermap",
+    "tile",
+    "layer"
+  ],
+  "homepage": "https://github.com/SedatUygur/Weather-Forecast-App",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

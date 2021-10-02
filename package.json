@@ -1,0 +1,33 @@
+{
+  "name": "weather-forecast-app",
+  "version": "1.0.0",
+  "description": "Weather forecast app with map. You can get current weather & daily forecast",
+  "main": "openweathermap-leaflet.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SedatUygur/Weather-Forecast-App.git"
+  },
+  "keywords": [
+    "javascript",
+    "leaflet",
+    "weather",
+    "weather app",
+    "weather api",
+    "weather forecast",
+    "weather map",
+    "map",
+    "openweathermap"
+  ],
+  "author": "Sedat Uygur <sedatcan_92@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SedatUygur/Weather-Forecast-App/issues"
+  },
+  "homepage": "https://github.com/SedatUygur/Weather-Forecast-App",
+  "dependencies": {
+    "leaflet": "~0.7.0"
+  }
+}
