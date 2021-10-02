@@ -219,23 +219,23 @@ L.OWM.LegendControl = L.Control.extend({
 L.OWM.Current = L.Layer.extend({
 
 	options: {
-		appId: null, // get your free Application ID at www.openweathermap.org
+		appId: null, 
 		type: 'city', 
-		lang: 'en', // available: 'en', 'de', 'ru', 'fr', 'nl', 'es', 'ca'
+		lang: 'en', // available: 'en', 'de', 'ru', 'fr'
 		minZoom: 7,
 		interval: 0, // interval for rereading city data in minutes
-		progressControl: true, // available: true, false
-		imageLoadingUrl: 'loading.gif', // URL of loading image relative to HTML document
+		progressControl: true, 
+		imageLoadingUrl: 'loading.gif', 
 		imageLoadingBgUrl: null, // URL of background image for progress control
-		temperatureUnit: 'C', // available: 'K' (Kelvin), 'C' (Celsius), 'F' (Fahrenheit)
+		temperatureUnit: 'C',
 		temperatureDigits: 1,
-		speedUnit: 'ms', // available: 'ms' (m/s), 'kmh' (km/h), 'mph' (mph)
+		speedUnit: 'ms', 
 		speedDigits: 0,
 		popup: true, // available: true, false
 		keepPopup: true, // available: true, false
 		showOwmStationLink: false, // available: true, false
-		showWindSpeed: 'both', // available: 'speed', 'beaufort', 'both'
-		showWindDirection: 'both', // available: 'deg', 'desc', 'both'
+		showWindSpeed: 'both', 
+		showWindDirection: 'both',
 		showTimestamp: true, // available: true, false
 		showTempMinMax: true, // available: true, false
 		useLocalTime: true, // available: true, false
@@ -249,11 +249,11 @@ L.OWM.Current = L.Layer.extend({
 		imageUrlPlane: 'https://openweathermap.org/img/s/iplane.png',
 		imageWidthPlane: 25,
 		imageHeightPlane: 25,
-		markerFunction: null, // user defined function for marker creation
-		popupFunction: null, // user defined function for popup creation
-		caching: true, // use caching of current weather data
-		cacheMaxAge: 15, // maximum age of cache content in minutes before it gets invalidated
-		keepOnMinZoom: false // keep or remove markers when zoom < minZoom
+		markerFunction: null, 
+		popupFunction: null, 
+		caching: true, 
+		cacheMaxAge: 15, 
+		keepOnMinZoom: false 
 	},
 
 	initialize: function(options) {
@@ -481,15 +481,6 @@ L.OWM.Current = L.Layer.extend({
 			txt += '</a>';
 		}
 		txt += '</div>';
-		/*
-		if (typeof station.weather != 'undefined' && typeof station.weather[0] != 'undefined') {
-			if (typeof station.weather[0].description != 'undefined' && typeof station.weather[0].id != 'undefined') {
-				txt += '<div class="owm-popup-description">'
-					+ this.i18n('id'+station.weather[0].id, station.weather[0].description + ' (' + station.weather[0].id + ')')
-					+ '</div>';
-			}
-		}
-		*/
 		var imgData = this._getImageData(station);
 		txt += '<div class="owm-popup-main"><img src="' + imgData.url + '" width="' + imgData.width
 				+ '" height="' + imgData.height + '" border="0" />';
@@ -579,11 +570,6 @@ L.OWM.Current = L.Layer.extend({
 				txt += '</div>';
 			}
 		}
-		/*if (typeof station.dt != 'undefined' && this.options.showTimestamp) {
-			txt += '<div class="owm-popup-timestamp">';
-			txt += '(' + this._convertTimestamp(station.dt) + ')';
-			txt += '</div>';
-		}*/
 		txt += '</div>';
 		return txt;
 	},
@@ -636,13 +622,6 @@ L.OWM.Current = L.Layer.extend({
 			let dailyDate = new Date(day.dt * 1000);
   			let dayName = dailyDate.toLocaleDateString('en-US',{ weekday: 'long' })
 			if(idx != 0){		
-				/*currentForecastEl.innerHTML = `
-				<img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
-				<div class="other">
-					<div class="day">${dayName}</div>				
-					<div class="temp">Day - ${day.temp.day} °C</div>
-					<div class="temp">Night - ${day.temp.night} °C</div>
-				</div>`;*/
 				otherDaysForecast += `
 				<div class="weather-forecast-item">
 					<img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">				
@@ -650,15 +629,7 @@ L.OWM.Current = L.Layer.extend({
 					<div class="temp">Day - ${day.temp.day} °C</div>
 					<div class="temp">Night - ${day.temp.night} °C</div>		
 				</div>`;
-			}/*else{
-				otherDaysForecast += `
-				<div class="weather-forecast-item">
-					<img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">				
-					<div class="day">${dayName}</div>												
-					<div class="temp">Day - ${day.temp.day} °C</div>
-					<div class="temp">Night - ${day.temp.night} °C</div>		
-				</div>`;
-			}*/
+			}
 		});
 		weatherForecastEl.innerHTML = otherDaysForecast;
 	},
